@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الدعم المالي</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --text-muted: #718096;
+            --zain-color: #ff3b30;
+            --zain-bg: #fff5f5;
+            --qi-color: #0056b3;
+            --qi-bg: #f0f7ff;
+            --success-color: #28a745;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --border-radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 440px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a202c;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .method-card {
+            border-radius: var(--border-radius);
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .method-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .zain-card {
+            background-color: var(--zain-bg);
+            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.03);
+        }
+
+        .qi-card {
+            background-color: var(--qi-bg);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.03);
+            margin-bottom: 10px;
+        }
+
+        .method-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .zain-card .method-title {
+            color: var(--zain-color);
+        }
+
+        .qi-card .method-title {
+            color: var(--qi-color);
+        }
+
+        .method-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .phone-display {
+            background: #ffffff;
+            border: 2px dashed #cbd5e0;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            display: block;
+            user-select: all;
+        }
+
+        .copy-btn {
+            background-color: var(--zain-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 59, 48, 0.2);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        .copy-btn.copied {
+            background-color: var(--success-color);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+        }
+
+        .qr-wrapper {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 16px;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2e8f0;
+            margin-top: 5px;
+        }
+
+        .qr-image {
+            width: 180px;
+            height: 180px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 15px;
+                border-radius: 16px;
+            }
+            .header h1 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>صفحة الدعم المالي</h1>
+            <p>شكراً لدعمك المستمر! يمكنك اختيار إحدى الطرق التالية لإرسال دعمك المالي مباشرة وبكل سهولة.</p>
+        </div>
+
+        <div class="method-card zain-card">
+            <div class="method-title">
+                <span>زين كاش (Zain Cash)</span>
+            </div>
+            <p class="method-desc">اضغط على الزر أدناه لنسخ رقم المحفظة مباشرة وتحويل المبلغ من تطبيق زين كاش الخاص بك.</p>
+            <div class="phone-display" id="phoneNumber">07874136550</div>
+            <button class="copy-btn" id="copyBtn" onclick="copyZainNumber()">نسخ رقم المحفظة</button>
+        </div>
+
+        <div class="method-card qi-card">
+            <div class="method-title">
+                <span>سوبر كي (Super Qi)</span>
+            </div>
+            <p class="method-desc">افتح تطبيق "سوبر كي"، اختر مسح الـ QR كود، وقم بتوجيه الكاميرا نحو الكود التالي لإتمام الدفع فوراُ.</p>
+            <div class="qr-wrapper">
+                <img src="103234.png" alt="QR سوبر كي" class="qr-image">
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>تم التصميم بكل حب لتسهيل عملية الدعم الآمن</p>
+        </div>
+    </div>
+
+    <script>
+        function copyZainNumber() {
+            const numberText = "07874136550";
+            const btn = document.getElementById('copyBtn');
+            
+            navigator.clipboard.writeText(numberText).then(() => {
+                btn.textContent = "تم النسخ بنجاح! ✓";
+                btn.classList.add('copied');
+                
+                // إعادة الزر لوضعه الطبيعي بعد ثانيتين
+                setTimeout(() => {
+                    btn.textContent = "نسخ رقم المحفظة";
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                // طريقة بديلة للمتصفحات القديمة
+                const textArea = document.createElement("textarea");
+                textArea.value = numberText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    btn.textContent = "تم النسخ بنجاح! ✓";
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = "نسخ رقم المحفظة";
+                        btn.classList.remove('copied');
+                    }, 2000);
+                } catch (e) {
+                    alert("عذراً، لم نتمكن من النسخ تلقائياً. يرجى تحديد الرقم ونسخه يدوياً.");
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+    </script>
+
+</body>
+</html>
